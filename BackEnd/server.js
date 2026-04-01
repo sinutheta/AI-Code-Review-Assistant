@@ -18,6 +18,9 @@ app.post("/review", async (req, res) => {
   const result = await reviewCode(code, language);
   return res.json(result);
 });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../FrontEnd/index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
